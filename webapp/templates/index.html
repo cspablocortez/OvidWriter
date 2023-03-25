@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+  <title>Ovid Writer</title>
+  <link href="static/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div id="document">
+        <textarea id="document_title" placeholder="Title" autofocus oninput="setTitle()"></textarea>
+        <textarea id="document_body" placeholder="Lorem ipsum" autocorrect="on" oninput="getWordCount()"></textarea>
+    </div>
+
+    <footer>
+        <table>
+            <tr>
+                <th id="title">Document Title</th>
+                <th id="word_count">Words: 0</th>
+                <th id="date"></th>
+                <th id="time"></th>
+            </tr>
+        </table>
+    </footer>
+    
+  <script src="/static/js/main.js"></script>
+</body>
+
+</html>

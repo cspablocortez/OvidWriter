@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Libre+Baskerville&family=Source+Serif+Pro&display=swap');
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+h1 {
+    font-family: 'EB Garamond', serif;
+    padding: 0% 10%;
+}
+
+p {
+    font-family: 'EB Garamond', serif;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 1.5rem;
+    padding: 10%;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+textarea::-webkit-scrollbar {
+  width: 0.25em;
+}
+ 
+textarea::-webkit-scrollbar-track {
+/*   box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3); */
+}
+ 
+textarea::-webkit-scrollbar-thumb {
+  background-color: #ededed;
+  outline: 1px solid #ffffff;
+  border-radius: 10px;
+}
+
+textarea {
+    font-family: 'EB Garamond', serif;
+    display: block;
+    width: 80%;
+    margin-bottom: 5%;
+    background: none;
+    margin-left: auto;
+    margin-right: auto;
+    resize: none;
+    border: none;
+    
+}
+
+div#document {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+textarea:focus {
+    outline: none !important;
+}
+
+textarea#document_title {
+    margin-top: 5%;
+    font-size: 1.5rem;
+}
+
+textarea#document_body {
+    font-size: 1.2rem;
+    min-height: 55vh;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    height: 3vh;
+    position: absolute;
+    width: 100vw;
+    bottom: 0;
+    padding-right: 25px;
+    font-family: 'EB Garamond', serif;
+}
+
+table {
+    float: right;
+}
+
+th {
+    padding-right: 30px;
+}
