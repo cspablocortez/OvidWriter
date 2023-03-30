@@ -1,6 +1,4 @@
 function formatTime() {
-
-    
     const d = new Date();
     let hours, minutes, seconds;
     
@@ -38,7 +36,6 @@ function setTime() {
     const timeCell = document.getElementById('time');
     let time = formatTime();
     timeCell.innerHTML = time;
-    console.log(time);
 }
 
 function setDate() {
@@ -53,7 +50,6 @@ function setTitle() {
     const titleCell = document.getElementById('title');
     const textAreaTitle = document.getElementById('document_title');
     titleCell.innerHTML = textAreaTitle.value; 
-    console.log(textAreaTitle.value);
     if (textAreaTitle.value == "") {
         titleCell.innerHTML = "Document Title"
     }
@@ -69,6 +65,28 @@ function getWordCount() {
     } else {
         wordCountCell.innerHTML = "Words: " + wordCount;
     }
+}
+
+function downloadTextAsFile() {
+    let documentTitle = document.getElementById('document_title');
+    let fileName = documentTitle.value;
+    let documentBody = document.getElementById('document_body');
+    let fileContents = documentBody.value;
+
+    let textFileBlob = new Blob([fileContents], {type:'text/plain'});
+    let textToSaveAsURL = window.URL.createObjectURL(textFileBlob);
+    let downloadLink = document.createElement('a');
+    
+    downloadLink.download = fileName;
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+}
+
+function destroyClickedElement(event) {
+    document.body.removeChild(event.target);
 }
 
 

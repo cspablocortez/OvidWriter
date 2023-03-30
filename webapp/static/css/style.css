@@ -85,3 +85,16 @@ table {
 th {
     padding-right: 30px;
 }
+
+button {
+    font-family: 'EB Garamond', serif;
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    font-style: bold;
+}
+
+button:hover {
+    cursor: pointer;
+}
