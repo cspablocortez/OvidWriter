@@ -69,22 +69,6 @@ function getWordCount() {
     }
 }
 
-function downloadTextAsFile() {
-    let documentTitle = document.getElementById('document_title');
-    let documentContents = document.getElementById('document_body');
-    let textToSave = documentContents.innerHTML.trim();
-    let textToSaveAsBlob = new Blob([textToSave], {type:'text/plain'});
-    let textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
-    let fileNameToSaveAs = documentTitle.value;
-    let downloadLink = document.createElement('a');
-    downloadLink.download = fileNameToSaveAs;
-    downloadLink.href = textToSaveAsURL;
-    downloadLink.onclick = destroyClickedElement;
-    downloadLink.style.display = "none";
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
-}
-
 function destroyClickedElement(event) {
     document.body.removeChild(event.target);
 }

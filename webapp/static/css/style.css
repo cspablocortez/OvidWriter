@@ -12,8 +12,7 @@ h1 {
 
 p {
     font-family: 'EB Garamond', serif;
-    color: rgba(0, 0, 0, 0.6);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     padding: 10%;
 }
 
@@ -38,10 +37,6 @@ textarea::-webkit-scrollbar {
   width: 0.25em;
 }
  
-textarea::-webkit-scrollbar-track {
-/*   box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3); */
-}
- 
 textarea::-webkit-scrollbar-thumb {
   background-color: #ededed;
   outline: 1px solid #ffffff;
@@ -54,7 +49,6 @@ textarea, #document_body {
     width: 80%;
     margin-bottom: 5%;
     background: none;
-    margin-left: auto;
     margin-right: auto;
     resize: none;
     border: none;
@@ -102,4 +96,14 @@ table {
 
 th {
     padding-right: 30px;
+}
+
+/* Quill */
+
+#editor {
+    height: 80vh;
+}
+
+.ql-editor {
+    padding: 0 !important;
 }
