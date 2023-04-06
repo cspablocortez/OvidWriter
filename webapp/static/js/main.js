@@ -31,7 +31,6 @@ function formatTime() {
     return hours + ":" + minutes + ":" + seconds;
 }
 
-
 function setTime() {
     const timeCell = document.getElementById('time');
     let time = formatTime();
@@ -58,26 +57,27 @@ function setTitle() {
 function getWordCount() {
     let textAreaContents = document.getElementById('document_body');
     let wordCountCell = document.getElementById('word_count');
-    let wordCount = textAreaContents.value.split(" ").length - 1;
+    let saveAsBtn = document.getElementById('save');
+    let wordCount = textAreaContents.innerHTML.trim().split(" ").length; 
     
     if (wordCount < 1) {
         wordCountCell.innerHTML = "Words: 0";
+        saveAsBtn.style.color = "black";
     } else {
         wordCountCell.innerHTML = "Words: " + wordCount;
+        saveAsBtn.style.color = "white";
     }
 }
 
 function downloadTextAsFile() {
     let documentTitle = document.getElementById('document_title');
-    let fileName = documentTitle.value;
-    let documentBody = document.getElementById('document_body');
-    let fileContents = documentBody.value;
-
-    let textFileBlob = new Blob([fileContents], {type:'text/plain'});
-    let textToSaveAsURL = window.URL.createObjectURL(textFileBlob);
+    let documentContents = document.getElementById('document_body');
+    let textToSave = documentContents.innerHTML.trim();
+    let textToSaveAsBlob = new Blob([textToSave], {type:'text/plain'});
+    let textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    let fileNameToSaveAs = documentTitle.value;
     let downloadLink = document.createElement('a');
-    
-    downloadLink.download = fileName;
+    downloadLink.download = fileNameToSaveAs;
     downloadLink.href = textToSaveAsURL;
     downloadLink.onclick = destroyClickedElement;
     downloadLink.style.display = "none";
@@ -89,8 +89,8 @@ function destroyClickedElement(event) {
     document.body.removeChild(event.target);
 }
 
-
 setDate()
 setTime();
 
 window.setInterval(setTime, 1000);
+

@@ -21,6 +21,19 @@ body {
     overflow-x: hidden;
 }
 
+button {
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    background-color: black;
+    color: white;
+    border: none;
+    font-style: bold;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
 textarea::-webkit-scrollbar {
   width: 0.25em;
 }
@@ -35,7 +48,7 @@ textarea::-webkit-scrollbar-thumb {
   border-radius: 10px;
 }
 
-textarea {
+textarea, #document_body {
     font-family: 'EB Garamond', serif;
     display: block;
     width: 80%;
@@ -45,7 +58,6 @@ textarea {
     margin-right: auto;
     resize: none;
     border: none;
-    
 }
 
 div#document {
@@ -62,9 +74,15 @@ textarea#document_title {
     font-size: 1.5rem;
 }
 
-textarea#document_body {
+div#document_body {
     font-size: 1.2rem;
     min-height: 55vh;
+    border: 1px solid #eee;
+}
+
+div#document_body:focus {
+    outline: none !important;
+    border: none;
 }
 
 footer {
@@ -84,17 +102,4 @@ table {
 
 th {
     padding-right: 30px;
-}
-
-button {
-    font-family: 'EB Garamond', serif;
-    background-color: black;
-    color: white;
-    border: none;
-    font-size: 1rem;
-    font-style: bold;
-}
-
-button:hover {
-    cursor: pointer;
 }

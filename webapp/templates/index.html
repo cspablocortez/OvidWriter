@@ -12,13 +12,15 @@
 <body>
     <div id="document">
         <textarea id="document_title" placeholder="Title" autofocus oninput="setTitle()"></textarea>
-        <textarea id="document_body" placeholder="Lorem ipsum" autocorrect="on" oninput="getWordCount()"></textarea>
+
+        <div id="document_body" contenteditable autocorrect="true" onkeyup="getWordCount()" onfocus="this.style.border = 'none'">
+        </div>
     </div>
 
     <footer>
         <table>
             <tr>
-                <th><button onclick="downloadTextAsFile();">Save As</button></th>
+                <th><button id="save" onclick="downloadTextAsFile();">Save As</button></th>
                 <th id="title">Document Title</th>
                 <th id="word_count">Words: 0</th>
                 <th id="date"></th>
