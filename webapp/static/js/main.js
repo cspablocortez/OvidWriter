@@ -77,4 +77,3 @@ setDate()
 setTime();
 
 window.setInterval(setTime, 1000);
-
