@@ -47,7 +47,6 @@ textarea, #document_body {
     font-family: 'EB Garamond', serif;
     display: block;
     width: 80%;
-    margin-bottom: 5%;
     background: none;
     margin-right: auto;
     resize: none;
@@ -107,3 +106,13 @@ th {
 .ql-editor {
     padding: 0 !important;
 }
+
+.ql-editor::-webkit-scrollbar {
+    width: 0.25em;
+  }
+   
+.ql-editor::-webkit-scrollbar-thumb {
+    background-color: #ededed;
+    outline: 1px solid #ffffff;
+    border-radius: 10px;
+  }

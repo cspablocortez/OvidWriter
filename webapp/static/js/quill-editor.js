@@ -3,7 +3,8 @@ let documentTitle = document.getElementById('document_title');
 let documentContents = document.getElementById('editor');
 
 let quill = new Quill('#editor', {
-    theme: 'bubble'
+    theme: 'bubble',
+    placeholder: '~'
 });
 
 function downloadTextAsFile() {
