@@ -14,7 +14,7 @@ Navigate to the project directory and run:
 
 `$ python webapp/app.py`
 
-Point browswer to `localhost:9000`
+Point browser to `localhost:9000`
 
 ## License
 
