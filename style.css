@@ -28,7 +28,7 @@ button {
     background-color: black;
     color: white;
     border: none;
-    font-style: bold;
+    font-weight: bold;
 }
 
 button:hover {
