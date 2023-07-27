@@ -31,6 +31,17 @@ button {
     font-weight: bold;
 }
 
+input {
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+}
+
+input::file-selector-button {
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
 button:hover {
     cursor: pointer;
 }
