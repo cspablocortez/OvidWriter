@@ -1,3 +1,18 @@
+const wordCountCell = document.getElementById('word_count');
+const documentTitle = document.getElementById('document_title');
+const documentContents = document.getElementById('editor');
+
+const quill = new Quill('#editor', {
+    theme: 'bubble',
+    placeholder: '~'
+});
+
+quill.on('text-change', function(delta, oldDelta, source) {
+    const text = quill.getText();
+    wordCountCell.innerText = "Words: " + text.trim().split(" ").length; 
+});
+
+
 function formatTime() {
     const d = new Date();
     let hours, minutes, seconds;
@@ -55,11 +70,6 @@ function setTitle() {
 }
 
 function getWordCount() {
-    let textAreaContents = document.getElementById('document_body');
-    let wordCountCell = document.getElementById('word_count');
-    let saveAsBtn = document.getElementById('save');
-    let wordCount = textAreaContents.innerHTML.trim().split(" ").length; 
-    
     if (wordCount < 1) {
         wordCountCell.innerHTML = "Words: 0";
         saveAsBtn.style.color = "black";
@@ -73,7 +83,47 @@ function destroyClickedElement(event) {
     document.body.removeChild(event.target);
 }
 
-setDate()
-setTime();
+function downloadTextAsFile() {
+    let textToSave = quill.getText();
+    let textToSaveAsBlob = new Blob([textToSave], {type:'text/plain'});
+    let textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    let fileNameToSaveAs = documentTitle.value;
+    let downloadLink = document.createElement('a');
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+}
 
+function readFileContents(file) {
+  const reader = new FileReader();
+
+  reader.onload = function(event) {
+    const contents = event.target.result;
+    documentTitle.innerText = file.name.slice(0, -4);
+    quill.setText(contents);
+    setTitle();
+    getWordCount();
+  };
+
+  reader.onerror = function(event) {
+    console.error("Error reading the file:", event.target.error);
+  };
+
+  // Read the file as text
+  reader.readAsText(file);
+}
+
+// Event listener to trigger file reading when a file is selected
+document.getElementById("fileInput").addEventListener("change", function(event) {
+  const file = event.target.files[0];
+  if (file) {
+    readFileContents(file);
+  }
+});
+
+setDate();
+setTime();
 window.setInterval(setTime, 1000);
