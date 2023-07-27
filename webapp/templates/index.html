@@ -22,7 +22,8 @@
     <footer>
         <table>
             <tr>
-                <th><button id="save" onclick="downloadTextAsFile();">Save As</button></th>
+                <th><button id="save" onclick="downloadTextAsFile();">Save</button></th>
+                <th><input type="file" id="fileInput"/><button id="openFile" onclick="openFile();">Open</button></th>
                 <th id="title">Untitled</th>
                 <th id="word_count">Words: 0</th>
                 <th id="date"></th>
@@ -32,6 +33,7 @@
     </footer>
     
   <script src="/static/js/main.js"></script>
+  <script src="/static/js/open-file.js"></script>
   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
   <script src="/static/js/quill-editor.js"></script>
 </body>
