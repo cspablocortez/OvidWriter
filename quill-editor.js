@@ -29,7 +29,7 @@ function readFileContents(file) {
     const contents = event.target.result;
 
     // Populate Title
-    documentTitle.innerText = file.name;
+    documentTitle.innerText = file.name.slice(0, -4);
 
     // Populate Body
     quill.setText(contents);
