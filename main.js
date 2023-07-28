@@ -42,8 +42,6 @@ function formatTime() {
     } else {
         return hours + ":" + minutes + ":" + seconds + " AM";
     }
-    
-    return hours + ":" + minutes + ":" + seconds;
 }
 
 function setTime() {
