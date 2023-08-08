@@ -67,8 +67,8 @@ textarea, #document_body {
 }
 
 div#document {
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 textarea:focus {
@@ -125,6 +125,7 @@ th {
 
 .ql-editor::-webkit-scrollbar {
     width: 0.2em;
+    padding-left: 10px;
   }
    
 .ql-editor::-webkit-scrollbar-thumb {
