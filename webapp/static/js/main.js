@@ -83,19 +83,41 @@ function destroyClickedElement(event) {
     document.body.removeChild(event.target);
 }
 
-function downloadTextAsFile() {
+// function downloadTextAsFile() {
+//     let textToSave = quill.getText();
+//     let textToSaveAsBlob = new Blob([textToSave], {type:'text/plain'});
+//     let textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+//     let fileNameToSaveAs = documentTitle.value;
+//     let downloadLink = document.createElement('a');
+//     downloadLink.download = fileNameToSaveAs;
+//     downloadLink.href = textToSaveAsURL;
+//     downloadLink.onclick = destroyClickedElement;
+//     downloadLink.style.display = "none";
+//     document.body.appendChild(downloadLink);
+//     downloadLink.click();
+// }
+async function downloadTextAsFile() {
     let textToSave = quill.getText();
-    let textToSaveAsBlob = new Blob([textToSave], {type:'text/plain'});
-    let textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
-    let fileNameToSaveAs = documentTitle.value;
-    let downloadLink = document.createElement('a');
-    downloadLink.download = fileNameToSaveAs;
-    downloadLink.href = textToSaveAsURL;
-    downloadLink.onclick = destroyClickedElement;
-    downloadLink.style.display = "none";
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
+    let textToSaveAsBlob = new Blob([textToSave], { type: 'text/plain' });
+
+    const options = {
+        suggestedName: documentTitle.value,
+        types: [{
+            description: 'Text File',
+            accept: { 'text/plain': ['.txt'] },
+        }],
+    };
+
+    try {
+        const handle = await window.showSaveFilePicker(options);
+        const writable = await handle.createWritable();
+        await writable.write(textToSaveAsBlob);
+        await writable.close();
+    } catch (error) {
+        console.error('Error saving the file:', error);
+    }
 }
+
 
 function readFileContents(file) {
   const reader = new FileReader();
