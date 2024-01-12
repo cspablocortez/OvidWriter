@@ -95,7 +95,7 @@ div#document_body:focus {
 footer {
     background-color: black;
     color: white;
-    height: 4vh;
+    height: 5vh;
     position: absolute;
     width: 100vw;
     bottom: 0;
