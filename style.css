@@ -122,16 +122,15 @@ th {
 }
 
 .ql-editor {
-    padding: 0 !important;
-    padding-right: 10px !important;
+    padding: 0px 10px !important
 }
 
 .ql-editor::-webkit-scrollbar {
-    width: 0.2em;
+    width: 0.15em;
   }
    
 .ql-editor::-webkit-scrollbar-thumb {
-    background-color: #a7a7a78e;
+    background-color: #a7a7a772;
     /* background-color: rgba(255, 0, 0, 0.305); */
     /* outline: 1px solid #ffffff; */
     border-radius: 10px;
