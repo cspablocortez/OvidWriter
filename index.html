@@ -12,7 +12,7 @@
 
 <body>
     <div id="document">
-        <textarea id="document_title" placeholder="Untitled" maxlength="80" oninput="setTitle()"></textarea>
+        <textarea id="document_title" placeholder="Untitled" maxlength="20" oninput="setTitle()"></textarea>
 
         <div id="editor">
  
@@ -22,8 +22,8 @@
     <footer id="footer">
         <table>
             <tr>
-              <th><input type="file" accept=".txt, .rtf, .md, .otf" id="fileInput"/></th>
-                <th><button id="save" onclick="downloadTextAsFile();">Save File</button></th>
+              <th><input type="file" accept=".txt" id="fileInput"/></th>
+                <th><button id="save" onclick="downloadTextAsFile();">Save</button></th>
                 <th id="title">Untitled</th>
                 <th id="word_count">Words: 0</th>
                 <th id="date"></th>
