@@ -132,3 +132,15 @@ th {
     background-color: #a7a7a772;
     border-radius: 10px;
   }
+
+/* Mobile Views */
+@media (max-width: 768px) {
+    footer {
+        visibility: hidden;
+    }
+
+    div#document {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
