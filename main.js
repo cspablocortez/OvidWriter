@@ -111,6 +111,7 @@ document.addEventListener('keydown', (event) => {
     // Save document with Ctrl + S
     if ((event.metaKey || event.ctrlKey) && event.key === 's') {
         downloadTextAsFile();
+        saveToLocalStorage();
     }
 
     // Open document with Ctrl + O
@@ -135,6 +136,38 @@ document.addEventListener('keydown', (event) => {
 });
 
 
+function saveToLocalStorage() {
+  const title = documentTitle.value;
+  const text = quill.getText();
+
+  if (typeof(Storage) !== "undefined") {
+    localStorage.setItem("title", title);
+    localStorage.setItem("contents", text);
+    console.log("Saved to localStorage.");
+  } else {
+    console.log("Sorry, your browser does not support Web Storage.");
+  }
+}
+
+function loadFromLocalStorage() {
+  if (typeof(Storage) !== "undefined") {
+    if (localStorage.getItem('contents')) {
+      const title = localStorage.getItem("title");
+      const contents = localStorage.getItem("contents");
+      documentTitle.textContent = title;
+      quill.setText(contents);
+    }
+    console.log("Loaded from localStorage.");
+  } else {
+    console.log("Sorry, your browser does not support Web Storage.");
+  }
+
+}
+
+
+
 setDate();
 setTime();
+loadFromLocalStorage();
 window.setInterval(setTime, 1000);
+window.setInterval(saveToLocalStorage, 3000);
