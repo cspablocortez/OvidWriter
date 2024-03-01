@@ -34,6 +34,7 @@ button {
 input {
     font-family: 'EB Garamond', serif;
     font-size: 1rem;
+    margin-right: -4rem;
 }
 
 input::file-selector-button {
