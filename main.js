@@ -55,6 +55,9 @@ function destroyClickedElement(event) {
 }
 
 function downloadTextAsFile() {
+  // Clear localStorage
+    localStorage.clear();
+    console.log("localStorage has been cleared.");
     let textToSave = quill.getText();
     let textToSaveAsBlob = new Blob([textToSave], {type:'text/plain'});
     let textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
@@ -111,7 +114,6 @@ document.addEventListener('keydown', (event) => {
     // Save document with Ctrl + S
     if ((event.metaKey || event.ctrlKey) && event.key === 's') {
         downloadTextAsFile();
-        saveToLocalStorage();
     }
 
     // Open document with Ctrl + O
