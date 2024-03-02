@@ -149,7 +149,7 @@ th {
         position: absolute;
         top: 0;
         overflow-x: hidden;
-        overflow-y: auto;
+        overflow-y: hidden;
         height: 95vh;
         width: 95vw;
     }
@@ -166,15 +166,9 @@ th {
     #editor {
         position: relative;
         top: 0;
-        bottom: 0;
+        bottom: 15%;
         width: fit-content;
         overflow-x: hidden;
         overflow-y: auto;
-        padding-bottom: 5%;
-
-    }
-
-    .ql-editor::-webkit-scrollbar {
-        display: none !important;
     }
 }

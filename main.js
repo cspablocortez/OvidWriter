@@ -183,4 +183,4 @@ setDate();
 setTime();
 loadFromLocalStorage();
 window.setInterval(setTime, 1000);
-window.setInterval(saveToLocalStorage, 3000);
+window.setInterval(saveToLocalStorage, 1000);
