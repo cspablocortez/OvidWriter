@@ -1,15 +1,8 @@
-const wordCountCell = document.getElementById('word_count');
-const documentTitle = document.getElementById('document_title');
+const wordCountCell    = document.getElementById('word_count');
+const documentTitle    = document.getElementById('document_title');
 const documentContents = document.getElementById('editor');
-let visibleFooter = true;
-let bottomPadding = 0;
+const settingsButton   = document.getElementById('settings-btn');
 
-const FontAttributor = Quill.import('attributors/class/font')
-FontAttributor.whitelist = [
-  'garamond'
-];
-
-Quill.register(FontAttributor, true);
 
 const quill = new Quill('#editor', {
     theme: 'bubble',
@@ -34,8 +27,6 @@ quill.on('text-change', function(delta, oldDelta, source) {
     wordCountCell.innerText = "Words: " + text.trim().split(" ").length; 
 });
 
-console.log(Quill.imports);
-
 // END QUILL SETTINGS //
 
 function setTime() {
@@ -43,13 +34,13 @@ function setTime() {
     const now = new Date();
     const formatTime = (time) => (time < 10) ? `0${time}` : time;   
     const hour = now.getHours();
-    const suffix = hour > 12 ? "PM" : "AM";
+    // const suffix = hour > 12 ? "PM" : "AM";
     timeCell.textContent = `${formatTime(now.getHours())}:${formatTime(now.getMinutes())}:${formatTime(now.getSeconds())}`
 }
 
 function setDate() {
-    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     const dateCell = document.getElementById('date');
     const d = new Date();
     dateCell.innerHTML = days[d.getDay()] + " " + months[d.getMonth()] + " " + d.getDate();
@@ -79,9 +70,7 @@ function destroyClickedElement(event) {
 }
 
 function downloadTextAsFile() {
-  // Clear localStorage
     localStorage.clear();
-    console.log("localStorage has been cleared.");
     let textToSave = quill.getText();
     let textToSaveAsBlob = new Blob([textToSave], {type:'text/plain'});
     let textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
@@ -121,7 +110,8 @@ document.getElementById("fileInput").addEventListener("change", function(event) 
   }
 });
 
-
+let visibleFooter = true;
+let bottomPadding = 0;
 document.addEventListener('keydown', (event) => {
     // Check if the pressed keys are Command (Mac) or Control (Windows/Linux) and 'J'
     if ((event.metaKey || event.ctrlKey) && (event.key === '0' || event.key === 'j')) {
@@ -182,6 +172,9 @@ function loadFromLocalStorage() {
       const contents = localStorage.getItem("contents");
       documentTitle.textContent = title;
       quill.setText(contents);
+      setFont();
+      setFontSize();
+      setMarginSize();
     }
     console.log("Loaded from localStorage.");
   } else {
@@ -190,7 +183,52 @@ function loadFromLocalStorage() {
 
 }
 
+function setFont() {
+  if (localStorage.getItem('font-family')) {
+    const font = localStorage.getItem('font-family');
 
+    // Title font
+    documentTitle.style.fontFamily = font; 
+
+    // Body font
+    const allParagraphs = document.querySelectorAll('.ql-editor p');
+    allParagraphs.forEach(p => {
+      p.style.fontFamily = font;
+    });
+
+    // Footer font
+    footer.style.fontFamily = font;
+
+    // Settings font
+    const settingsModal = document.getElementById('settings-modal');
+    settingsModal.style.fontFamily = font;
+
+    document.getElementById("font-selector").value = font;
+  }
+}
+
+function setFontSize() {
+  if (localStorage.getItem('font-size')) {
+    const fontSize = localStorage.getItem('font-size');
+
+    // Body font
+    const allParagraphs = document.querySelectorAll('.ql-editor p');
+    allParagraphs.forEach(p => {
+      p.style.fontSize = fontSize;
+    });
+  }
+}
+
+function setMarginSize() {
+  if (localStorage.getItem('margin-size')) {
+    const marginSize = localStorage.getItem('margin-size');
+
+    // Body margin
+    const container = document.getElementById('document');
+    container.style.marginLeft = marginSize;
+    container.style.marginRight = marginSize;
+  }
+}
 
 setDate();
 setTime();

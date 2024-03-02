@@ -1,19 +1,26 @@
-/* @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Libre+Baskerville&family=Source+Serif+Pro&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+:root {
+    --font: 'EB Garamond', serif;
+    --background-color: #f8dfdb;
+    --footer-text-color: #6e6e6e;
+}
 
 html {
   height: 100%;
   width: 100%;
-  background-color: hsla(8.28,67.44%,91.57%,1);
+  background-color: var(--background-color);
+  font-family: var(--font);
 }
 
 h1 {
-    font-family: 'EB Garamond', serif;
+    font-family: var(--font);
     padding: 0% 10%;
 }
 
 p {
-    font-family: 'EB Garamond', serif;
+    font-family: var(--font);
     font-size: 1.3rem;
     padding: 10%;
 }
@@ -24,21 +31,20 @@ body {
 }
 
 button {
-    font-family: 'EB Garamond', serif;
-    font-size: 1rem;
-    background-color: black;
-    color: white;
+    font-family: var(--font);
+    color: var(--footer-text-color);
     border: none;
+    background: none;
 }
 
 input {
-    font-family: 'EB Garamond', serif;
+    font-family: var(--font);
     font-size: 1rem;
     margin-right: -4rem;
 }
 
 input::file-selector-button {
-    font-family: 'EB Garamond', serif;
+    font-family: var(--font);
     font-size: 1rem;
     font-weight: bold;
 }
@@ -58,9 +64,9 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 textarea, #document_body {
-    font-family: 'EB Garamond', serif;
+    font-family: var(--font);
     display: block;
-    width: 75%;
+    width: 100%;
     background: none;
     margin-right: auto;
     resize: none;
@@ -68,8 +74,8 @@ textarea, #document_body {
 }
 
 div#document {
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 textarea:focus {
@@ -77,8 +83,8 @@ textarea:focus {
 }
 
 textarea#document_title {
-    margin-top: 5%;
-    font-size: 1.75rem;
+    margin-top: 2%;
+    font-size: 1.4rem;
     color: red;
 }
 
@@ -94,14 +100,14 @@ div#document_body:focus {
 }
 
 footer {
-    color: #6e6e6e;
+    color: var(--footer-text-color);
     height: 5vh;
     position: absolute;
     width: 100vw;
     bottom: 0;
     left: 0;
     padding-right: 25px;
-    font-family: 'EB Garamond', serif;
+    font-family: var(--font);
     overflow-y: hidden;
 }
 
@@ -110,7 +116,7 @@ table {
 }
 
 th {
-    padding-right: 30px;
+    padding-right: 25px;
     font-weight: normal;
 }
 
@@ -118,6 +124,7 @@ th {
 
 #editor {
     height: 80vh;
+    padding-bottom: 5rem;
 }
 
 .ql-tooltip {
@@ -125,20 +132,17 @@ th {
 }
 
 .ql-editor {
-    padding: 0px 0px !important
+    padding: 0px 0px !important;
+    width: 100% !important;
 }
 
 .ql-editor::-webkit-scrollbar {
     width: 0.15em;
-  }
+}
    
 .ql-editor::-webkit-scrollbar-thumb {
     background-color: #a7a7a772;
     border-radius: 10px;
-  }
-
-.ql-font-garamont {
-    font-family: 'EB Garamond', serif;
 }
 
 /* Mobile Views */

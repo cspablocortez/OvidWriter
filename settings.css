@@ -1,0 +1,44 @@
+:root {
+    --font: 'EB Garamond', serif;
+    --background-color: #f8dfdb;
+    --footer-text-color: #6e6e6e;
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+    font-family: var(--font);
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fff;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  #exit-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  #exit-btn:hover,
+  #exit-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
