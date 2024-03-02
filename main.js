@@ -124,7 +124,7 @@ document.getElementById("fileInput").addEventListener("change", function(event) 
 
 document.addEventListener('keydown', (event) => {
     // Check if the pressed keys are Command (Mac) or Control (Windows/Linux) and 'J'
-    if ((event.metaKey || event.ctrlKey) && event.key === 'j') {
+    if ((event.metaKey || event.ctrlKey) && (event.key === '0' || event.key === 'j')) {
       const footer = document.getElementById('footer');
       if (visibleFooter) {
           footer.style.visibility = 'hidden';
