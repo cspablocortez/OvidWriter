@@ -146,11 +146,11 @@ th {
 @media (max-width: 768px) {
 
     body {
-        position: absolute;
+        position: fixed;
         top: 0;
         overflow-x: hidden;
         overflow-y: hidden;
-        height: 95vh;
+        height: 100%;
         width: 95vw;
     }
 
@@ -166,7 +166,7 @@ th {
     #editor {
         position: relative;
         top: 0;
-        bottom: 15%;
+        bottom: 0;
         width: fit-content;
         overflow-x: hidden;
         overflow-y: auto;
