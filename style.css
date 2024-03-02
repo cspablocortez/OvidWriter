@@ -145,5 +145,10 @@ th {
         margin-right: 1%;
     }
 
+    #editor {
+        width: 95vw;
+        border: 1px solid green;
+    }
+
 
 }
