@@ -157,7 +157,11 @@ th {
         width: 95vw;
     }
 
-    footer {
+    .modal-content {
+        width: 90%;
+    }
+
+    #title, #date, #time {
         display: none;
     }
 
