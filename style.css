@@ -136,6 +136,13 @@ th {
 
 /* Mobile Views */
 @media (max-width: 768px) {
+
+    body {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+
     footer {
         visibility: hidden;
     }
