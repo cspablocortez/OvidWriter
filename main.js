@@ -13,7 +13,20 @@ Quill.register(FontAttributor, true);
 
 const quill = new Quill('#editor', {
     theme: 'bubble',
-    placeholder: '˙˙˙'
+    placeholder: '˙˙˙',
+    modules: {
+      keyboard: {
+        bindings: {
+          list: false,
+          'list autofill': {
+            key: '',
+            format: ['list'],
+            prefix: /^\s*?(\d+\.|-|\*|\+|\[ \]|\[x\])$/,
+            handler: () => {}
+        }
+      }
+    }
+  }
 });
 
 quill.on('text-change', function(delta, oldDelta, source) {
