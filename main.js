@@ -4,6 +4,13 @@ const documentContents = document.getElementById('editor');
 let visibleFooter = true;
 let bottomPadding = 0;
 
+const FontAttributor = Quill.import('attributors/class/font')
+FontAttributor.whitelist = [
+  'garamond'
+];
+
+Quill.register(FontAttributor, true);
+
 const quill = new Quill('#editor', {
     theme: 'bubble',
     placeholder: '˙˙˙'
@@ -14,13 +21,17 @@ quill.on('text-change', function(delta, oldDelta, source) {
     wordCountCell.innerText = "Words: " + text.trim().split(" ").length; 
 });
 
+console.log(Quill.imports);
+
+// END QUILL SETTINGS //
+
 function setTime() {
     const timeCell = document.getElementById('time');
     const now = new Date();
     const formatTime = (time) => (time < 10) ? `0${time}` : time;   
     const hour = now.getHours();
     const suffix = hour > 12 ? "PM" : "AM";
-    timeCell.textContent = `${formatTime(now.getHours())}:${formatTime(now.getMinutes())}:${formatTime(now.getSeconds())} ${suffix}`
+    timeCell.textContent = `${formatTime(now.getHours())}:${formatTime(now.getMinutes())}:${formatTime(now.getSeconds())}`
 }
 
 function setDate() {

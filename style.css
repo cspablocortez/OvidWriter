@@ -134,17 +134,28 @@ th {
     border-radius: 10px;
   }
 
+.ql-font-garamont {
+    font-family: 'EB Garamond', serif;
+}
+
 /* Mobile Views */
 @media (max-width: 768px) {
 
     body {
         /* overflow: hidden; */
-        position: fixed;
+        /* position: fixed; */
         width: 100%;
     }
 
     footer {
-        visibility: hidden;
+        background: none;
+        height: auto;
+        color: gray;
+        height: 10vh;
+    }
+
+    #title, #date, #time {
+        display: none;
     }
 
     div#document {
@@ -155,6 +166,10 @@ th {
     #editor {
         height: 75vh;
         width: 95vw;
+    }
+
+    input#file-upload-button {
+        background-color: blue;
     }
 
 
