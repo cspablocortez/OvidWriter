@@ -150,8 +150,13 @@ th {
     footer {
         background: none;
         height: auto;
+        width: fit-content;
         color: gray;
         height: 5vh;
+    }
+
+    th {
+        margin-left: 1%;
     }
 
     #fileUpload, #save, #title, #date, #time {
