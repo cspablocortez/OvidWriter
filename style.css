@@ -42,7 +42,6 @@ button {
 
 input {
     font-family: 'Helvetica', sans-serif;
-    font-size: 1rem;
     margin-right: -4rem;
     font-weight: normal;
 }
@@ -173,14 +172,14 @@ th {
         margin-right: 1%;
     }
 
-    #editor {
+    /* #editor {
         position: relative;
         top: 0;
         bottom: 0;
         width: fit-content;
         overflow-x: hidden;
         overflow-y: auto;
-    }
+    } */
 
     footer {
         bottom: 5%;

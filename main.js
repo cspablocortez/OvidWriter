@@ -238,7 +238,7 @@ function newFile() {
   setTitle()
 
   localStorage.removeItem('contents')
-  quill.setText('')
+  quill.setContents('\n')
   
   loadFromLocalStorage()
   getWordCount()
