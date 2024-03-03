@@ -234,6 +234,12 @@ function setMarginSize() {
   }
 }
 
+function resetAll() {
+  documentTitle.textContent = "Untitled"
+  quill.setText("...");
+  localStorage.clear();
+}
+
 setDate();
 setTime();
 loadFromLocalStorage();
