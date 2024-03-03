@@ -1,11 +1,3 @@
-let settings = {
-    fonts: ["EB Garamond", "Courier Prime"],
-    paragraphFontSize: 1.3,
-    titleFontSize: 1.55,
-    darkMode: false,
-
-}
-
 const modal       = document.getElementById("settings-modal");
 const span        = document.getElementById("exit-btn");
 const settingsBtn = document.getElementById("settings-btn");

@@ -4,6 +4,7 @@ const titleCell        = document.getElementById('title');
 const documentTitle    = document.getElementById('document_title');
 const documentContents = document.getElementById('editor');
 const settingsButton   = document.getElementById('settings-btn');
+const dateCell = document.getElementById('date');
 
 
 const quill = new Quill('#editor', {
@@ -44,7 +45,6 @@ function setTime() {
 function setDate() {
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    const dateCell = document.getElementById('date');
     const d = new Date();
     dateCell.innerHTML = days[d.getDay()] + " " + months[d.getMonth()] + " " + d.getDate();
 }
@@ -58,16 +58,15 @@ function setTitle() {
 }
 
 function getWordCount() {
-  console.log(wordCount)
-    if (wordCount <= 2 || undefined) {
-      wordCount = 0;
-        wordCountCell.innerHTML = "Words: 0";
-        // saveAsBtn.style.color = "black";
-    } else {
-      console.log('hi yle')
-        wordCountCell.innerHTML = "Words: " + wordCount;
-        // saveAsBtn.style.color = "white";
-    }
+  const mobileWordCount = document.querySelector('.word_count')
+  if (wordCount <= 2 || undefined) {
+    wordCount = 0;
+      wordCountCell.innerHTML = "Words: 0";
+      mobileWordCount.innerHTML = "Words: 0";
+  } else {
+      wordCountCell.innerHTML = "Words: " + wordCount;
+      mobileWordCount.innerHTML = "Words: " + wordCount;
+  }
 }
 
 function destroyClickedElement(event) {
