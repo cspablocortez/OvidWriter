@@ -9,11 +9,11 @@ As a web app:
 
 https://cspablocortez.github.io/OvidWriter
 
-![Screenshot](OvidWriter.png "OW Screenshot")
+![Screenshot](images/Desktop.png "Desktop View Screenshot")
 
 As a Progressive Web App:
 
-![Screenshot](OvidWriter.png "OW Screenshot")
+![Screenshot](images/Mobile.PNG "Mobile View Screenshot")
 
 To install on homescreen:
 
