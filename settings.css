@@ -31,13 +31,13 @@
     line-height: 2em;
   }
 
-  #save, #newFile {
+  #save, #newFile, #openFile {
     color: rgb(22, 120, 207);
     float: right;
     margin: 1.3em;
   }
 
-  #save:hover, #newFile:hover {
+  #save:hover, #newFile:hover, #openFile:hover {
     background-color: ghostwhite;
     border-radius: 10px;
   }

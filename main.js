@@ -114,6 +114,10 @@ document.getElementById("fileInput").addEventListener("change", function(event) 
   }
 });
 
+function openFile() {
+  document.getElementById('fileInput').click();
+}
+
 let visibleFooter = true;
 let bottomPadding = 0;
 document.addEventListener('keydown', (event) => {
@@ -136,7 +140,7 @@ document.addEventListener('keydown', (event) => {
 
     // Open document with Ctrl + O
     if ((event.metaKey || event.ctrlKey) && event.key === 'o') {
-        document.getElementById('fileInput').click();
+        openFile();
       }
 
     // Move margin up 

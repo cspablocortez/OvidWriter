@@ -48,9 +48,26 @@ input {
 
 input::file-selector-button {
     font-family: 'Helvetica', sans-serif;
-    font-size: 1rem;
-    font-weight: bold;
 }
+
+
+input[type="file" i] {
+    appearance: none;
+    background-color: initial;
+    cursor: default;
+    align-items: baseline;
+    color: inherit;
+    text-overflow: ellipsis;
+    text-align: start !important;
+    padding: initial;
+    border: initial;
+    white-space: pre;
+    overflow: hidden !important;
+}
+
+  
+
+
 
 button:hover {
     cursor: pointer;
