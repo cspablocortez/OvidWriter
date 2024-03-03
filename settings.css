@@ -21,23 +21,40 @@
   /* Modal Content */
   .modal-content {
     background-color: #fff;
-    margin: 15% auto; /* 15% from the top and centered */
+    /* 15% */
+    margin: 15% auto; 
     padding: 20px;
     border: 1px solid #888;
-    width: 50%; /* Could be more or less, depending on screen size */
+    width: 40%;
+    border-radius: 10px;
+    font-family: 'Helvetica', sans-serif;
+    line-height: 2em;
   }
+
+  #save, #newFile {
+    color: rgb(22, 120, 207);
+    float: right;
+    margin: 1.3em;
+  }
+
+  #save:hover, #newFile:hover {
+    background-color: ghostwhite;
+    border-radius: 10px;
+  }
+
+  
   
   /* The Close Button */
   #exit-btn {
     color: #aaa;
     float: right;
-    font-size: 28px;
+    font-size: 1.5rem;
     font-weight: bold;
   }
   
   #exit-btn:hover,
   #exit-btn:focus {
-    color: black;
+    color: rgb(100, 100, 100);
     text-decoration: none;
     cursor: pointer;
   }

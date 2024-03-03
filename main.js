@@ -1,4 +1,6 @@
+let wordCount          = 0;
 const wordCountCell    = document.getElementById('word_count');
+const titleCell        = document.getElementById('title');
 const documentTitle    = document.getElementById('document_title');
 const documentContents = document.getElementById('editor');
 const settingsButton   = document.getElementById('settings-btn');
@@ -6,7 +8,7 @@ const settingsButton   = document.getElementById('settings-btn');
 
 const quill = new Quill('#editor', {
     theme: 'bubble',
-    placeholder: '˙˙˙',
+    placeholder: '...',
     modules: {
       keyboard: {
         bindings: {
@@ -24,7 +26,8 @@ const quill = new Quill('#editor', {
 
 quill.on('text-change', function(delta, oldDelta, source) {
     const text = quill.getText();
-    wordCountCell.innerText = "Words: " + text.trim().split(" ").length; 
+    wordCount = text.trim().split(" ").length;
+    wordCountCell.innerText = `Words: ${wordCount}`;
 });
 
 // END QUILL SETTINGS //
@@ -47,21 +50,23 @@ function setDate() {
 }
 
 function setTitle() {
-    const titleCell = document.getElementById('title');
-    const textAreaTitle = document.getElementById('document_title');
-    titleCell.innerHTML = textAreaTitle.value; 
-    if (textAreaTitle.value == "") {
-        titleCell.innerHTML = "Document Title"
-    }
+    console.log('Start setTitle() function')
+    titleCell.innerHTML = documentTitle.value;
+    if (documentTitle.value == '') {
+      titleCell.innerHTML = 'Untitled'
+    } 
 }
 
 function getWordCount() {
-    if (wordCount < 1) {
+  console.log(wordCount)
+    if (wordCount <= 2 || undefined) {
+      wordCount = 0;
         wordCountCell.innerHTML = "Words: 0";
-        saveAsBtn.style.color = "black";
+        // saveAsBtn.style.color = "black";
     } else {
+      console.log('hi yle')
         wordCountCell.innerHTML = "Words: " + wordCount;
-        saveAsBtn.style.color = "white";
+        // saveAsBtn.style.color = "white";
     }
 }
 
@@ -166,12 +171,10 @@ function saveToLocalStorage() {
 }
 
 function loadFromLocalStorage() {
-  if (typeof(Storage) !== "undefined") {
-    if (localStorage.getItem('contents')) {
-      const title = localStorage.getItem("title");
-      const contents = localStorage.getItem("contents");
-      documentTitle.textContent = title;
-      quill.setText(contents)
+  if (typeof(Storage) !== 'undefined') {
+    if (localStorage.getItem('title') && localStorage.getItem('contents')) {
+      documentTitle.textContent = localStorage.getItem('title') // turn into another quill obj?
+      quill.setText(localStorage.getItem('contents'))
       setFont();
       setFontSize();
       setMarginSize();
@@ -230,14 +233,22 @@ function setMarginSize() {
   }
 }
 
-function resetAll() {
-  documentTitle.textContent = "Untitled"
-  quill.setText("> ");
-  localStorage.clear();
+function newFile() {
+  localStorage.removeItem('title')
+  documentTitle.value = ''
+  setTitle()
+
+  localStorage.removeItem('contents')
+  quill.setText('')
+  
+  loadFromLocalStorage()
+  getWordCount()
+  
+  location.reload();
 }
 
 setDate();
 setTime();
 loadFromLocalStorage();
 window.setInterval(setTime, 1000);
-window.setInterval(saveToLocalStorage, 1000);
+window.setInterval(saveToLocalStorage, 1500);
