@@ -170,8 +170,12 @@ function loadFromLocalStorage() {
     if (localStorage.getItem('contents')) {
       const title = localStorage.getItem("title");
       const contents = localStorage.getItem("contents");
+      if (contents == "") {
+        quill.setText(contents);
+      } else {
+        quill.setText("...")
+      }
       documentTitle.textContent = title;
-      quill.setText(contents);
       setFont();
       setFontSize();
       setMarginSize();
