@@ -1,20 +1,25 @@
 # Ovid Writer
 
-Ovid Writer is a space for jotting down notes without distractions.
+Ovid Writer is a simple plaintext editor.
 
-![Screenshot](OvidWriter.png "OW Screenshot")
 
 ## Usage
 
-Clone the project:
+As a web app:
 
-`$ git clone https://github.com/cspablocortez/OvidWriter.git`
+https://cspablocortez.github.io/OvidWriter
 
-Navigate to the project directory and run:
+![Screenshot](OvidWriter.png "OW Screenshot")
 
-`$ python webapp/app.py`
+As a Progressive Web App:
 
-Point browser to `localhost:9000`
+![Screenshot](OvidWriter.png "OW Screenshot")
+
+To install on homescreen:
+
+1. Point mobile browser to https://cspablocortez.github.io/OvidWriter 
+2. Select "Add to Home Screen"
+
 
 ## License
 
