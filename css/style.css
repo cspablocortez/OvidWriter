@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    --font-size: 1.8rem;
+    --background-color: #f8dfdb;
+    --hover-color: rgba(248, 248, 255, 0.65);
+
+    /* --background-color: #fff; */
+}
+
+html, body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background: none;
+    max-height: 100vh;
+    max-height: 100svh;
+    background-color: var(--background-color);
+}
+
+textarea {
+    font-size: var(--font-size);
+    line-height: 1.42;
+    overflow: hidden;
+    margin-top: var(--font-size);          /*2rem*/
+    margin-bottom: var(--font-size);
+    background: none;
+    resize: none !important;
+    border: none;
+    text-decoration: none;
+    min-height: 40px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+}
+
+textarea:focus {
+    outline: none !important;
+    border: none !important;
+    /* background-color: ghostwhite; */
+}
+
+.editor {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.ql-editor {
+    max-height: 82vh !important;
+    max-height: 82svh !important;
+    overflow-y: scroll !important;
+    padding: 0px !important;
+    border-radius: 4px;
+    font-size: var(--font-size);
+    z-index: 10;
+}
+
+.ql-editor:focus {
+    /* background-color: ghostwhite; */
+}
+
+.ql-tooltip {
+    display: none !important;
+}
+
+#settings-btn {
+    position: fixed;
+    right: 5%;
+    bottom: 0;
+    font-size: var(--font-size);
+    background: none;
+    color: #a6a6a6;
+    border-radius: 100%;
+    border: none;
+    width: 38px;
+    text-align: center;
+    padding: 0;
+    /* border: 1px solid green; */
+}
+
+#settings-btn:hover {
+    background-color: var(--hover-color);
+}
+
+.touch-keyboard-on {
+    max-height: 65vh;
+    max-height: 65svh;
+}
+
+.container {
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow-y: hidden;
+    /* background-color: cadetblue; */
+}
+
+.toolbar {
+    display: none;
+    position: absolute;
+    right: 6rem;
+    bottom: 0;
+    float: right;
+    font-size: var(--font-size);
+    color: #a6a6a6;
+    margin: 10px;
+    padding: 0;
+    height: 38px;
+    text-align: center;
+    box-sizing: border-box;
+    line-height: 38px;;
+    /* border: 1px solid red; */
+}
+
+.toolbar-data {
+    margin-left: 2rem;
+}
+
+/* Larger than mobile */
+@media (min-width: 400px) {
+    textarea {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        
+    }
+
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+    #settings-btn {
+        right: 2rem;
+    }
+
+    .toolbar {
+        display: inline-block;
+    }
+
+    .ql-editor {
+        max-height: 78vh !important;
+    }
+
+}
