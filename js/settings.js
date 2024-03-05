@@ -1,6 +1,6 @@
 const modal       = document.getElementById('settings-modal');
 const span        = document.getElementById('exit-btn');
-const settingsBtn = document.getElementById('settings-btn');
+// const settingsBtn = document.getElementById('settings-btn');
 
 // When the user clicks the button, open the modal 
 settingsBtn.onclick = function() {
