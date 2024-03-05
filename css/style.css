@@ -58,9 +58,9 @@ textarea:focus {
     z-index: 10;
 }
 
-.ql-editor:focus {
-    /* background-color: rgba(248, 248, 255, 0.4); */
-}
+/* .ql-editor:focus {
+    background-color: rgba(248, 248, 255, 0.4);
+} */
 
 .ql-tooltip {
     display: none !important;

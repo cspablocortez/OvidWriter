@@ -2,7 +2,6 @@ const titleTextArea = document.getElementById('textarea-title')
 
 loadFromLocalStorage()
 saveToLocalStorage()
-window.setInterval(() => console.log('hi'), 1000)
 window.setInterval(saveToLocalStorage, 1000)
 
 function loadFromLocalStorage() {
@@ -69,7 +68,7 @@ function setBackgroundColor() {
         console.log(bgColor)
         document.body.style.backgroundColor = bgColor
         
-        if (bgColor == '#000000' || bgColor == 'rgb(53, 53, 53)') {
+        if (bgColor == 'rgb(53, 53, 53)') {
             console.log('dark mode')
             const lightTextColor = '#ffffff'
             titleTextArea.style.color = lightTextColor
@@ -114,6 +113,7 @@ function saveToLocalStorage() {
 function newFile() {
     localStorage.removeItem('title')
     localStorage.removeItem('contents')
+    // Preserves styles
     // localStorage.removeItem('font-family')
     // localStorage.removeItem('font-size')
     // localStorage.removeItem('background-color')
