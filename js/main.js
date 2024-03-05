@@ -7,7 +7,8 @@ function downloadTextAsFile() {
     let textToSave = quill.getText();
     let textToSaveAsBlob = new Blob([textToSave], {type:'text/plain'});
     let textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
-    let fileNameToSaveAs = documentTitle.value;
+    const titleTextArea = document.getElementById('textarea-title')
+    let fileNameToSaveAs = titleTextArea.value;
     let downloadLink = document.createElement('a');
     downloadLink.download = fileNameToSaveAs;
     downloadLink.href = textToSaveAsURL;

@@ -4,11 +4,15 @@ self.addEventListener('install', function(e) {
         return cache.addAll([
           '/',
           '/index.html',
-          '/main.js',
-          '/style.css',
-          '/settings.css',
-          '/settings.js',
-          '/'
+          'css/normalize.css',
+          'css/skeleton.css',
+          'css/settings.css',
+          'css/style.css',
+          'js/main.js',
+          'js/quill-config.js',
+          'js/storage.js',
+          'js/settings.js',
+          'js/UI.js'
         ]);
       })
     );
