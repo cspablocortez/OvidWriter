@@ -9,10 +9,10 @@ function loadFromLocalStorage() {
       if (localStorage.getItem('title') && localStorage.getItem('contents')) {
         titleTextArea.textContent = localStorage.getItem('title')
         quill.setText(localStorage.getItem('contents'))
-        updateUI();
     } else {
         console.log('Nothing to load yet.');
     }
+    updateUI();
 }
 
 function updateUI() {
@@ -114,13 +114,13 @@ function saveToLocalStorage() {
 function newFile() {
     localStorage.removeItem('title')
     localStorage.removeItem('contents')
-    localStorage.removeItem('font-family')
-    localStorage.removeItem('font-size')
-    localStorage.removeItem('background-color')
+    // localStorage.removeItem('font-family')
+    // localStorage.removeItem('font-size')
+    // localStorage.removeItem('background-color')
     titleTextArea.value = ''
     quill.setContents('\n')
     loadFromLocalStorage()
-    // location.reload();
+    location.reload();
     console.log('New file created.')
 }
 
