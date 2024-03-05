@@ -35,9 +35,11 @@
     }
   ],
   "start_url": "index.html",
-  "background_color": "#f8dfdb",
+  
   "display": "standalone",
   "scope": "/",
-  "theme_color": "#f8dfdb",
+  
   "orientation": "portrait"
 }
+
+
