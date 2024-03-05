@@ -1,16 +1,9 @@
 const titleTextArea = document.getElementById('textarea-title')
 
-function saveToLocalStorage() {
-    const title = titleTextArea.value
-    const text = quill.getText()
-   
-    if (typeof(Storage) !== 'undefined') {
-        localStorage.setItem('title', title)
-        localStorage.setItem('contents', text)
-    } else {
-        alert('Sorry, your browser does not support Web Storage.')
-    }
-}
+loadFromLocalStorage()
+saveToLocalStorage()
+window.setInterval(() => console.log('hi'), 1000)
+window.setInterval(saveToLocalStorage, 1000)
 
 function loadFromLocalStorage() {
       if (localStorage.getItem('title') && localStorage.getItem('contents')) {
@@ -18,24 +11,15 @@ function loadFromLocalStorage() {
         quill.setText(localStorage.getItem('contents'))
         updateUI();
     } else {
-        console.log('Loaded from localStorage.');
-        console.log('Sorry, your browser does not support Web Storage.');
+        console.log('Nothing to load yet.');
     }
-}
-
-function newFile() {
-    localStorage.removeItem('title')
-    titleTextArea.value = ''
-    localStorage.removeItem('contents')
-    quill.setContents('\n')
-    loadFromLocalStorage()
-    location.reload();
 }
 
 function updateUI() {
     setFont();
     setFontSize();
     setMarginSize();
+    setBackgroundColor();
 }
 
 function setFont() {
@@ -50,8 +34,6 @@ function setFont() {
   
       const toolbar = document.querySelector('.toolbar')
       toolbar.style.fontFamily = font
-  
-      document.getElementById('font-selector').value = font
     }
 }
 
@@ -67,8 +49,6 @@ function setFontSize() {
 
       const toolbar = document.querySelector('.toolbar')
       toolbar.style.fontSize = fontSize
-  
-      document.getElementById('font-selector').value = fontSize
     }
 }
 
@@ -80,6 +60,68 @@ function setMarginSize() {
       const complementValue = 100 - percentageValue;
       container.style.width = `${complementValue}%`;
     }
+}
+
+function setBackgroundColor() {
+    
+    if (localStorage.getItem('background-color')) {
+        const bgColor = localStorage.getItem('background-color')
+        console.log(bgColor)
+        document.body.style.backgroundColor = bgColor
+        
+        if (bgColor == '#000000' || bgColor == 'rgb(53, 53, 53)') {
+            console.log('dark mode')
+            const lightTextColor = '#ffffff'
+            titleTextArea.style.color = lightTextColor
+            const allParagraphs = document.querySelectorAll('.ql-editor p')
+            allParagraphs.forEach(p => {
+              p.style.color = lightTextColor
+            }); 
+        } else {
+            console.log('light mode')
+            const darkTextColor = '#000000'
+            titleTextArea.style.color = darkTextColor
+            const allParagraphs = document.querySelectorAll('.ql-editor p')
+            allParagraphs.forEach(p => {
+              p.style.color = darkTextColor
+            }); 
+        }
+    }
+}
+
+function saveToLocalStorage() {
+    const title = titleTextArea.value
+    const text = quill.getText()
+    const style = window.getComputedStyle(titleTextArea)
+    const fontFamily = style.fontFamily
+    const fontSize = style.fontSize
+    const bgColor = document.body.style.backgroundColor
+   
+    if (typeof(Storage) !== 'undefined') {
+        localStorage.setItem('title', title)
+        localStorage.setItem('contents', text)
+        localStorage.setItem('font-family', fontFamily)
+        localStorage.setItem('font-size', fontSize)
+        localStorage.setItem('background-color', bgColor)
+        updateUI()
+    } else {
+        alert('Sorry, your browser does not support Web Storage.')
+    }
+    // console.log(localStorage)
+}
+
+
+function newFile() {
+    localStorage.removeItem('title')
+    localStorage.removeItem('contents')
+    localStorage.removeItem('font-family')
+    localStorage.removeItem('font-size')
+    localStorage.removeItem('background-color')
+    titleTextArea.value = ''
+    quill.setContents('\n')
+    loadFromLocalStorage()
+    // location.reload();
+    console.log('New file created.')
 }
 
 function readFileContents(file) {
@@ -98,7 +140,4 @@ function readFileContents(file) {
     };
   
     reader.readAsText(file);
-  }
-
-loadFromLocalStorage()
-window.setInterval(saveToLocalStorage, 1000)
+}
