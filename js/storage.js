@@ -62,30 +62,26 @@ function setMarginSize() {
 }
 
 function setBackgroundColor() {
-    
+    let textColor = '#00000'
     if (localStorage.getItem('background-color')) {
         const bgColor = localStorage.getItem('background-color')
         console.log(bgColor)
         document.body.style.backgroundColor = bgColor
         
-        if (bgColor == 'rgb(53, 53, 53)') {
+        if (bgColor == 'rgb(44, 41, 45)') {
             console.log('dark mode')
-            const lightTextColor = '#ffffff'
-            titleTextArea.style.color = lightTextColor
-            const allParagraphs = document.querySelectorAll('.ql-editor p')
-            allParagraphs.forEach(p => {
-              p.style.color = lightTextColor
-            }); 
+            textColor = '#ffffff'
+            
         } else {
             console.log('light mode')
-            const darkTextColor = '#000000'
-            titleTextArea.style.color = darkTextColor
-            const allParagraphs = document.querySelectorAll('.ql-editor p')
-            allParagraphs.forEach(p => {
-              p.style.color = darkTextColor
-            }); 
+            textColor = '#000000'
         }
     }
+    titleTextArea.style.color = textColor
+    const allParagraphs = document.querySelectorAll('.ql-editor p')
+    allParagraphs.forEach(p => {
+      p.style.color = textColor
+    }); 
 }
 
 function saveToLocalStorage() {

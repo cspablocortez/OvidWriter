@@ -58,6 +58,10 @@ textarea:focus {
     z-index: 10;
 }
 
+.ql-editor::-webkit-scrollbar { 
+    display: none; 
+}
+
 /* .ql-editor:focus {
     background-color: rgba(248, 248, 255, 0.4);
 } */
