@@ -8,8 +8,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
   <meta name="theme-color" content="#f8dfdb">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="#f8dfdb">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <script>
+    function updateThemeColor() {
+      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      // Update theme color
+      const themeColorMetaTag = document.querySelector('meta[name="theme-color"]');
+      themeColorMetaTag.content = prefersDarkScheme ? 'rgb(44, 41, 45)' : '#f8dfdb'; // Example colors for dark and light
     
+      // Update apple-mobile-web-app-status-bar-style
+      const appleStatusBarStyleMetaTag = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
+      appleStatusBarStyleMetaTag.content = prefersDarkScheme ? 'rgb(44, 41, 45)' : '#f8dfdb';
+    }
+    
+    document.addEventListener('DOMContentLoaded', updateThemeColor)
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(updateThemeColor);
+    
+    </script>
+  
+  
   <title>Ovid</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
@@ -26,7 +44,7 @@
     }
 
     updateManifestForColorScheme(); 
-    window.matchMedia('(prefers-color-scheme: dark)').addListener(updateManifestForColorScheme);
+    
   </script>
   <link rel="manifest" href="manifest-light.json">
 </head>

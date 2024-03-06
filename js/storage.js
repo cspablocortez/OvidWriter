@@ -65,7 +65,6 @@ function setBackgroundColor() {
     let textColor = '#00000'
     if (localStorage.getItem('background-color')) {
         const bgColor = localStorage.getItem('background-color')
-        console.log(bgColor)
         document.body.style.backgroundColor = bgColor
         
         if (bgColor == 'rgb(44, 41, 45)') {

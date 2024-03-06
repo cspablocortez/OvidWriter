@@ -6,8 +6,12 @@
     --font-size: 1.8rem;
     --background-color: #f8dfdb;
     --hover-color: rgba(248, 248, 255, 0.65);
+}
 
-    /* --background-color: #fff; */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: rgb(44, 41, 45); 
+    }
 }
 
 html, body {
