@@ -37,9 +37,7 @@
   "start_url": "index.html",
   
   "display": "standalone",
-  "scope": "/",
-  
-  "orientation": "portrait"
+  "scope": "/"
 }
 
 
