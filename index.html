@@ -18,7 +18,17 @@
   <link rel="stylesheet" href="css/settings.css" type="text/css">
   <link rel="stylesheet" href="//cdn.quilljs.com/1.3.6/quill.bubble.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="manifest" href="manifest.json">
+  <script>
+    function updateManifestForColorScheme() {
+      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const manifestLinkElement = document.querySelector('link[rel="manifest"]');
+      manifestLinkElement.href = prefersDarkScheme ? 'manifest-dark.json' : 'manifest-light.json';
+    }
+
+    updateManifestForColorScheme(); 
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(updateManifestForColorScheme);
+  </script>
+  <link rel="manifest" href="manifest-light.json">
 </head>
 
 <body>
@@ -105,6 +115,7 @@
     <script src="js/UI.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/main.js"></script>
+
 </body>
 
 </html>
