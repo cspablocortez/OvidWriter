@@ -8,12 +8,18 @@
     --hover-color: rgba(248, 248, 255, 0.35);
     --text-color: #232323;
     --toolbar-text-color: #a6a6a6;
+    --modal-background-color: #fff;
+    --modal-text-color: #000;
+    --dropdown-text-color: #eeeeee;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --background-color: rgb(44, 41, 45); 
         --text-color: #eeeeee;
+        --modal-background-color: #000;
+        --modal-text-color: #eeeeee;
+        --dropdown-text-color: #232323;
     }
 }
 
@@ -128,6 +134,10 @@ textarea:focus {
 
 .toolbar-data {
     margin-left: 2rem;
+}
+
+select {
+    color: var(--dropdown-text-color)
 }
 
 /* Larger than mobile */
