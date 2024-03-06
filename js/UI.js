@@ -8,7 +8,7 @@ const toolbarDate = document.querySelector('.data-date')
 const toolbarTime = document.querySelector('.data-time')
 const settingsBtn = document.getElementById('settings-btn')
 
-if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+if (/android/i.test(userAgent) || /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
     ql_editor.addEventListener('focus', () => {
         console.log('ql_editor focused')
         settingsBtn.style.display = 'none'
