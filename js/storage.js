@@ -111,7 +111,7 @@ function newFile() {
     // Preserves styles
     // localStorage.removeItem('font-family')
     // localStorage.removeItem('font-size')
-    // localStorage.removeItem('background-color')
+    localStorage.removeItem('background-color')
     titleTextArea.value = ''
     quill.setContents('\n')
     loadFromLocalStorage()
