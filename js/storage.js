@@ -73,7 +73,7 @@ function setBackgroundColor() {
         textColor = '#eeeeee'
     } else {
         console.log('light mode')
-        textColor = '#eeeeee'
+        textColor = '#000000'
         backgroundColor = 'rgb(248, 223, 219)'
     }
 
