@@ -18,7 +18,7 @@ function updateUI() {
     setFont();
     setFontSize();
     setMarginSize();
-    setBackgroundColor();
+    // setBackgroundColor();
 }
 
 function setFont() {

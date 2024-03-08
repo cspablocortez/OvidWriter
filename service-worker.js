@@ -12,7 +12,8 @@ self.addEventListener('install', function(e) {
           'js/quill-config.js',
           'js/storage.js',
           'js/settings.js',
-          'js/UI.js'
+          'js/UI.js',
+          '/icons/*'
         ]);
       })
     );

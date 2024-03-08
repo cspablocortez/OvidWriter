@@ -10,7 +10,7 @@
     --toolbar-text-color: #a6a6a6;
     --modal-background-color: #fff;
     --modal-text-color: #000;
-    --dropdown-text-color: #eeeeee;
+    --dropdown-text-color: #000;
 }
 
 @media (prefers-color-scheme: dark) {

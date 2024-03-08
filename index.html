@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="icons/ios/192.png">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-  <meta name="theme-color" content="#f8dfdb">
+  <meta name="theme-color" content="rgb(248, 223, 219)">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <script>
@@ -15,11 +15,11 @@
 
       // Update theme color
       const themeColorMetaTag = document.querySelector('meta[name="theme-color"]');
-      themeColorMetaTag.content = prefersDarkScheme ? 'rgb(44, 41, 45)' : '#f8dfdb'; // Example colors for dark and light
+      themeColorMetaTag.content = prefersDarkScheme ? 'rgb(44, 41, 45)' : 'rgb(248, 223, 219)'; // Example colors for dark and light
     
       // Update apple-mobile-web-app-status-bar-style
       const appleStatusBarStyleMetaTag = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
-      appleStatusBarStyleMetaTag.content = prefersDarkScheme ? 'rgb(44, 41, 45)' : '#f8dfdb';
+      appleStatusBarStyleMetaTag.content = prefersDarkScheme ? 'rgb(44, 41, 45)' : 'rgb(248, 223, 219)';
     }
     
     document.addEventListener('DOMContentLoaded', updateThemeColor)
@@ -59,13 +59,13 @@
           <br>
 
           <!-- Background Color selector -->
-          <label for="bgColor-selector">Background:</label>
+          <!-- <label for="bgColor-selector">Background:</label>
           <select id="bgColor-selector">
             <option value="#f8dfdb">Light</option>
             <option value="rgb(44, 41, 45)">Dark</option>
-          </select>
+          </select> -->
   
-          <br>
+          <!-- <br> -->
   
           <!-- Font size slider -->
           <label for="font-size-slider">Font Size:</label>
