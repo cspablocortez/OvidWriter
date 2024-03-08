@@ -27,10 +27,10 @@ document.getElementById('font-selector').addEventListener('change', function() {
 });
 
 // Set Background Color
-// document.getElementById('bgColor-selector').addEventListener('change', function() {
-//   localStorage.setItem('background-color', this.value);
-//   updateUI()
-// });
+document.getElementById('bgColor-selector').addEventListener('change', function() {
+  localStorage.setItem('background-color', this.value);
+  updateUI()
+});
 
 // Set Font Size
 document.getElementById('font-size-slider').addEventListener('input', function() {
