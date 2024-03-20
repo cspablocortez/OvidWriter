@@ -63,16 +63,13 @@ function setMarginSize() {
 
 function setBackgroundColor() {
     let darkMode = localStorage.getItem('background-color') == 'rgb(44, 41, 45)' ? true : false
-    console.log(darkMode)
 
     let textColor = '#00000'
     let backgroundColor = 'rgb(44, 41, 45)'
     
     if (darkMode) {
-        console.log('dark mode')
         textColor = '#eeeeee'
     } else {
-        console.log('light mode')
         textColor = '#000000'
         backgroundColor = 'rgb(248, 223, 219)'
     }

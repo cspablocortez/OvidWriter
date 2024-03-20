@@ -9,6 +9,7 @@ const APP_STATIC_RESOURCES = [
   'css/skeleton.css',
   'css/settings.css',
   'css/style.css',
+  'https://cdn.quilljs.com/1.3.6/quill.js',
   'js/main.js',
   'js/quill-config.js',
   'js/storage.js',

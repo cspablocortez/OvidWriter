@@ -1,7 +1,7 @@
 {
   "short_name": "Ovid",
   "name": "Ovid",
-  "id": "/",
+  "id": "/OvidWriter",
   "icons": [
     {
         "src": "icons/android-chrome-192x192.png",
@@ -33,11 +33,11 @@
         "sizes": "48x48"
     }
   ],
-  "start_url": "/",
+  "start_url": "/OvidWriter",
   "background_color": "rgb(248, 223, 219)",
   "theme_color": "rgb(248, 223, 219)",
   "display": "standalone",
-  "scope": "/"
+  "scope": "/OvidWriter"
 }
 
 
