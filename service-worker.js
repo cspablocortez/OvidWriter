@@ -1,8 +1,10 @@
 const VERSION = "v1"
 const CACHE_NAME = `ovid-writer=${VERSION}`
 const APP_STATIC_RESOURCES = [
+  'https://cdn.quilljs.com/1.3.6/quill.bubble.css',
+  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
   '/',
-  '/index.html',
+  'index.html',
   'css/normalize.css',
   'css/skeleton.css',
   'css/settings.css',
@@ -12,7 +14,13 @@ const APP_STATIC_RESOURCES = [
   'js/storage.js',
   'js/settings.js',
   'js/UI.js',
-  'icons/*'
+  'manifest.json',
+  'icons/favicon.ico',
+  'icons/apple-touch-icon.png',
+  'icons/android-chrome-192x192.png',
+  'icons/android-chrome-512x512.png',
+  'icons/favicon-16x16.png',
+  'icons/favicon-32x32.png'
 ]
 
 
@@ -37,6 +45,29 @@ self.addEventListener("activate", (event) => {
         }),
       );
       await clients.claim();
+    })(),
+  );
+});
+
+self.addEventListener("fetch", (event) => {
+  // when seeking an HTML page
+  if (event.request.mode === "navigate") {
+    // Return to the index.html page
+    event.respondWith(caches.match("index.html"));
+    return;
+  }
+
+  // For every other request type
+  event.respondWith(
+    (async () => {
+      const cache = await caches.open(CACHE_NAME);
+      const cachedResponse = await cache.match(event.request.url);
+      if (cachedResponse) {
+        // Return the cached response if it's available.
+        return cachedResponse;
+      }
+      // Respond with a HTTP 404 response status.
+      return new Response(null, { status: 404 });
     })(),
   );
 });
