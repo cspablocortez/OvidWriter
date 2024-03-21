@@ -1,5 +1,5 @@
 const VERSION = "v1"
-const CACHE_NAME = `ovid-writer=${VERSION}`
+const CACHE_NAME = `ovid-writer-${VERSION}`
 const APP_STATIC_RESOURCES = [
   'https://cdn.quilljs.com/1.3.6/quill.bubble.css',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
@@ -25,12 +25,31 @@ const APP_STATIC_RESOURCES = [
 ]
 
 
-self.addEventListener("install", (event) => {
+self.addEventListener('install', (event) => {
   event.waitUntil(
     (async () => {
       const cache = await caches.open(CACHE_NAME);
       cache.addAll(APP_STATIC_RESOURCES);
+      console.log('Opened cache.')
     })(),
+  );
+});
+
+self.addEventListener('fetch', function(event) {
+  console.log('Fetch SW')
+  console.log(`Event: ${event}`)
+  console.log(`Request: ${event.request}`)
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        console.log(`Response: ${response}`)
+        // Cache hit - return response
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      }
+    )
   );
 });
 

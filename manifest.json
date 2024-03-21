@@ -1,6 +1,7 @@
 {
   "short_name": "Ovid",
   "name": "Ovid",
+  "description": "A custom plaintext editor.",
   "id": "/OvidWriter",
   "icons": [
     {
@@ -39,5 +40,3 @@
   "display": "standalone",
   "scope": "/OvidWriter"
 }
-
-
