@@ -24,48 +24,65 @@ const APP_STATIC_RESOURCES = [
   'icons/favicon-32x32.png'
 ]
 
-
 self.addEventListener('install', (event) => {
+  console.log('Service Worker: Installed')
+  // event.waitUntil(
+  //   (async () => {
+  //     const cache = await caches.open(CACHE_NAME);
+  //     cache.addAll(APP_STATIC_RESOURCES);
+  //     console.log('Opened cache.')
+  //   })(),
+  // );
+});
+
+self.addEventListener("activate", (event) => {
   event.waitUntil(
     (async () => {
-      const cache = await caches.open(CACHE_NAME);
-      cache.addAll(APP_STATIC_RESOURCES);
-      console.log('Opened cache.')
+      const names = await caches.keys();
+      await Promise.all(
+        names.map((name) => {
+          if (name !== CACHE_NAME) {
+            console.log('Service Worker: Clearing old cache.');
+            return caches.delete(name);
+          }
+        }),
+      );
+      await clients.claim();
     })(),
   );
 });
 
-self.addEventListener('fetch', function(event) {
-  console.log('Fetch SW')
-  console.log(`Event: ${event}`)
-  console.log(`Request: ${event.request}`)
-  event.respondWith(
-    caches.match(event.request)
-      .then(function(response) {
-        console.log(`Response: ${response}`)
-        // Cache hit - return response
-        if (response) {
-          return response;
-        }
-        return fetch(event.request);
-      }
-    )
+self.addEventListener('fetch', (e) => {
+  console.log('Service Worker: Fetching')
+  e.respondWith(
+    fetch(e.request)
+      .then((res) => {
+        const resClone = res.clone()
+        caches
+          .open(CACHE_NAME)
+          .then((cache) => {
+            cache.put(e.request, resClone)
+          });
+        return res;
+      }).catch((err) => caches.match(e.request).then((res) => res))
   );
 });
 
-// self.addEventListener("activate", (event) => {
-//   event.waitUntil(
-//     (async () => {
-//       const names = await caches.keys();
-//       await Promise.all(
-//         names.map((name) => {
-//           if (name !== CACHE_NAME) {
-//             return caches.delete(name);
-//           }
-//         }),
-//       );
-//       await clients.claim();
-//     })(),
+// self.addEventListener('fetch', function(event) {
+//   console.log('Fetch SW')
+//   console.log(`Event: ${event}`)
+//   console.log(`Request: ${event.request}`)
+//   event.respondWith(
+//     caches.match(event.request)
+//       .then(function(response) {
+//         console.log(`Response: ${response}`)
+//         // Cache hit - return response
+//         if (response) {
+//           return response;
+//         }
+//         return fetch(event.request);
+//       }
+//     )
 //   );
 // });
 
